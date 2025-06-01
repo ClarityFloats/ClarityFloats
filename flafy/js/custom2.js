@@ -26,8 +26,8 @@ $(document).ready(function () {
 				var mothersDayEnd = new Date("May 13, 2025");
 
 
-				var fathersDayStart = new Date("May 3, 2024");
-				var fathersDayEnd = new Date("June 17, 2024");
+				var fathersDayStart = new Date("June 1, 2025");
+				var fathersDayEnd = new Date("June 17, 2025");
 
 
 				var holidayStartDate = new Date("December 8, 2024");
@@ -72,7 +72,7 @@ $(document).ready(function () {
 						startDate: fathersDayStart,
 						endDate: fathersDayEnd,
 						text1: "Father's Day Deal",
-						text2: "BOGO 60 min floats (two floats) $69",
+						text2: "BOGO 60 min floats (two floats) $89",
 						dealLink: "https://clarityfloats.floathelm.com/store/giftcards/1225556"
 					},
 					{
