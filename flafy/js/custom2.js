@@ -42,7 +42,21 @@ $(document).ready(function () {
 				var specialMembershipDealStartDate = new Date("September 1, 2024");
 				var specialMembershipDealEndDate = new Date("September 30, 2024");
 				
+				var floatChallengeStartDate = new Date("August 1, 2025");
+				var floatChallengeEndDate = new Date("August 31, 2025");
+				
+
 				var deals = [
+						{
+						name: "August Float Challenge",
+						startDate: floatChallengeStartDate,
+						endDate: floatChallengeEndDate,
+						text1: "August Float Challenge",
+						text2: "💧 3 floats for $139 💧",
+						text3: "Float 4 times in August and you're entered to win 12 floats 💧 and 12 sauna 🔥 sessions! ",
+						massageText: "Use all 3 in August get a 4th float for free!",
+						dealLink: "https://clarityfloats.floathelm.com/store/packages/1242732"
+					},
 					{
 						name: "Black Friday",
 						startDate: blackFridayStart,
@@ -131,6 +145,9 @@ $(document).ready(function () {
 						$('#holiday-text-2').text(deal.text2);
 						if(deal.massageText){
 							$('#holiday-text-3a').text(deal.massageText);
+						}
+						if(deal.text3){
+							$('#holiday-text-3b').text(deal.text3);
 						}
 						if(deal.specialMembershipHtml){
 							$(".holiday-link").hide();
