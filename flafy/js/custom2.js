@@ -18,8 +18,8 @@ $(document).ready(function () {
 				var note = $('#note');
 				var dealExpirationDate = null;
 
-				var blackFridayStart = new Date("November 24, 2024");
-				var blackFridayEnd = new Date("December 2, 2024");
+				var blackFridayStart = new Date("November 24, 2025");
+			var blackFridayEnd = new Date("December 1, 2025");
 
 
 				var mothersDayStart = new Date("May 4, 2025");
