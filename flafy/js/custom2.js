@@ -22,8 +22,8 @@ $(document).ready(function () {
 				var blackFridayEnd = new Date("December 1, 2025");
 
 
-				var mothersDayStart = new Date("May 4, 2025");
-				var mothersDayEnd = new Date("May 13, 2025");
+				var mothersDayStart = new Date("May 1, 2026");
+				var mothersDayEnd = new Date("May 11, 2026");
 
 
 				var fathersDayStart = new Date("June 1, 2025");
