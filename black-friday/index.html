@@ -214,7 +214,9 @@
     .fine { font-size: 14px; color: var(--color-neutral-700); margin: 14px 0 0; }
 
     /* ended state (set by script after the end date) */
-    .is-ended .cta-live { display: none; }
+    .is-ended .cta-live, .is-ended .closer .btns.cta-live, .is-ended .hero-ctas.cta-live,
+    .is-ended .ends, .is-ended .closer h2 + p, .is-ended .price-bubble { display: none; }
+    .is-ended .hero .ended-note { background: color-mix(in srgb, var(--color-neutral-100) 14%, transparent); color: var(--color-neutral-100); margin-top: 22px; }
     .ended-note { display: none; }
     .is-ended .ended-note { display: block; font-weight: 600; padding: 16px 22px; border-radius: 999px; background: var(--color-neutral-300); text-align: center; }
 
@@ -350,8 +352,15 @@
 </head>
 
 <body>
-  <!-- Black Friday 2026: pre-sale Nov 13, sale Nov 16–30. Set the end of the offer here (Central time). After this moment the buy buttons hide. -->
-  <div id="bf" data-ends="2026-12-01T00:00:00-06:00">
+  <!-- ═══ BLACK FRIDAY DATES — the only place to change them (Central time, -06:00) ═══
+       data-sale-starts : when the line switches from "pre-sale" to "sale is on"
+       data-last-day    : start of the final day ("Last day!" messages)
+       data-ends        : the moment the offer ends; buy buttons hide after this
+       The page works out the "Nov 16–30" wording from these dates. -->
+  <div id="bf"
+       data-sale-starts="2026-11-16T00:00:00-06:00"
+       data-last-day="2026-11-30T00:00:00-06:00"
+       data-ends="2026-12-01T00:00:00-06:00">
 
   <header class="site-head">
     <div class="wrap">
@@ -385,7 +394,7 @@
           <p class="ended-note">Black Friday is over. Thanks for floating with us!</p>
           <p class="ends">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span>Pre-sale is open now · Sale runs Nov 16–30</span>
+            <span id="when-line">Pre-sale is open now · Sale runs Nov 16–30</span>
           </p>
         </div>
         <div class="hero-photo">
@@ -565,14 +574,14 @@
 
         <div class="closer">
           <div>
-            <h2>Half off ends November 30.</h2>
+            <h2 id="closer-title">Half off ends November 30.</h2>
             <p>Six sessions for $272, or a massage and a float for $134.</p>
           </div>
           <div class="btns cta-live">
             <a class="btn btn-primary" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">Buy 3, Get 3</a>
             <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + Float</a>
           </div>
-          <p class="ended-note">Black Friday is over. Thanks for floating with us!</p>
+          <p class="ended-note" style="background:var(--color-accent-2-700);color:var(--color-accent-2-100)">Thanks for floating with us! <a href="https://clarityfloats.floathelm.com/booking" target="_blank" rel="noopener" style="color:inherit">Book a session</a></p>
         </div>
       </div>
     </section>
@@ -599,8 +608,39 @@
   <script>
     (function () {
       var root = document.getElementById('bf');
+      var now = new Date();
+      var starts = new Date(root.getAttribute('data-sale-starts'));
+      var lastDay = new Date(root.getAttribute('data-last-day'));
       var ends = new Date(root.getAttribute('data-ends'));
-      if (!isNaN(ends) && new Date() >= ends) root.classList.add('is-ended');
+
+      // "Nov 16" style labels in Central time
+      function md(d) {
+        try { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Chicago' }); }
+        catch (e) { return d.toDateString().slice(4, 10).replace(/ 0/, ' '); }
+      }
+      function longDay(d) {
+        try { return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'America/Chicago' }); }
+        catch (e) { return md(d); }
+      }
+      var finalDay = new Date(ends.getTime() - 1);          // last moment of the sale
+      var s = md(starts), f = md(finalDay);
+      var range = s.split(' ')[0] === f.split(' ')[0] ? s + '–' + f.split(' ')[1] : s + ' – ' + f;
+
+      var line = document.getElementById('when-line');
+      var closer = document.getElementById('closer-title');
+      if (!isNaN(ends) && now >= ends) {
+        root.classList.add('is-ended');
+        closer.textContent = "That's a wrap on Black Friday.";
+      } else if (!isNaN(lastDay) && now >= lastDay) {
+        line.textContent = 'Last day! The sale ends tonight at midnight';
+        closer.textContent = 'Last day: half off ends tonight.';
+      } else if (!isNaN(starts) && now >= starts) {
+        line.textContent = 'The sale is on now, through ' + f;
+        closer.textContent = 'Half off ends ' + longDay(finalDay) + '.';
+      } else if (!isNaN(starts)) {
+        line.textContent = 'Pre-sale is open now · Sale runs ' + range;
+        closer.textContent = 'Half off ends ' + longDay(finalDay) + '.';
+      }
       document.getElementById('yr').textContent = new Date().getFullYear();
 
       // Sticky buy bar (phones). Shows Buy 3, Get 3 by default; switches to
