@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Black Friday at Clarity Float Spa | Buy 3, Get 3</title>
-  <meta name="description" content="Black Friday at Clarity Float Spa in Columbia, MO: Buy 3, Get 3 for $272 (a $544 value), or buy a massage and get a float on us for $134.">
+  <meta name="description" content="Black Friday at Clarity Float Spa in Columbia, MO: Buy 3, Get 3 for $272 (a $544 value), or buy a massage and get a FREE float for $134.">
   <!-- DRAFT: remove the next line when the page is approved to go public -->
   <meta name="robots" content="noindex, nofollow">
 
@@ -176,13 +176,15 @@
     @media (max-width: 900px) {
       .deal-wide, .deal-alt.deal-wide { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "info" "items" "buy"; row-gap: 0; }
       .deal-wide .items { margin: 0 0 24px; }
+      .deal-main.deal-wide { grid-template-areas: "info" "items" "inside" "buy"; }
+      .inside { margin: 0 0 24px; padding-top: 22px; }
       .deal-alt.deal-wide .photo { height: auto; margin: -6px 0 24px; }
       .deal-alt.deal-wide .photo img { height: auto; min-height: 0; aspect-ratio: 16 / 10; }
     }
 
     .deal { border-radius: 36px; padding: clamp(26px, 4vw, 44px); box-shadow: var(--shadow-sm); scroll-margin-top: 24px; }
     .deal-main { background: var(--color-accent-2-200); }
-    .deal-alt { background: var(--color-accent-100); }
+    .deal-alt { background: var(--color-accent-2-200); }
     .deal h3 { font-size: clamp(30px, 3.6vw, 42px); margin-top: 14px; }
     .deal .sub { font-size: 18px; color: var(--color-neutral-800); max-width: 38ch; }
 
@@ -211,6 +213,16 @@
     .deal-alt .photo { margin: -6px 0 24px; }
     .deal-alt .photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 28px; }
 
+    .items .val s { font-weight: 400; color: var(--color-neutral-700); margin-right: 6px; text-decoration-thickness: 2px; }
+    .love { margin: 14px 0 0; padding: 12px 16px; border-radius: 16px; font-weight: 600; font-size: 16px;
+            background: color-mix(in srgb, var(--color-neutral-100) 70%, transparent); max-width: 44ch; }
+    @media (min-width: 901px) { .deal-main.deal-wide { grid-template-areas: "info items" "buy items" "inside inside"; } }
+    .inside { grid-area: inside; margin-top: clamp(28px, 4vw, 44px); padding-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--color-divider); }
+    .inside h4 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 6px; }
+    .inside > p { color: var(--color-neutral-800); margin-bottom: 22px; }
+    .inside .svc { background: color-mix(in srgb, var(--color-neutral-100) 70%, transparent); }
+    .svc { scroll-margin-top: 24px; }
+    .terms { font-size: 14px; color: var(--color-neutral-700); margin: 22px auto 0; max-width: 70ch; text-align: center; }
     .fine { font-size: 14px; color: var(--color-neutral-700); margin: 14px 0 0; }
 
     /* ended state (set by script after the end date) */
@@ -274,7 +286,6 @@
       .hero h1 { font-size: 50px; margin: 12px 0 10px; }
       .hero .lede { font-size: 17px; margin-bottom: 0; }
       .hero-ctas { margin-top: 18px; }
-      .hero-ctas .btn-secondary { display: none; }
       .ends { margin-top: 14px; font-size: 14px; }
 
       section { padding-top: 48px; }
@@ -366,9 +377,9 @@
     <div class="wrap">
       <a class="brand" href="/"><img src="/img/black-friday/clarity-logo.png" alt="">Clarity Float Spa</a>
       <nav class="head-links" aria-label="Main">
-        <a class="hide-sm" href="/#floatdevices">Float</a>
-        <a class="hide-sm" href="/#sauna">Sauna</a>
-        <a class="hide-sm" href="/#massage">Massage</a>
+        <a class="hide-sm" href="#float">Float</a>
+        <a class="hide-sm" href="#sauna">Sauna</a>
+        <a class="hide-sm" href="#massage">Massage</a>
         <a class="btn btn-secondary" href="#deals">See the deals</a>
       </nav>
     </div>
@@ -380,16 +391,16 @@
         <div>
           <span class="tag tag-dark">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
-            Black Friday at Clarity
+            Black Friday at Clarity · Our best deal of the year
           </span>
           <h1>Buy 3,<br><em>get 3.</em></h1>
-          <p class="lede">A float, an infrared sauna session and a massage, then all three again, on us. Half off the whole reset.</p>
+          <p class="lede">Float + Sauna + Massage. Buy one of each, get one of each free.</p>
           <div class="hero-ctas cta-live">
             <a class="btn btn-primary" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">
-              Get Buy 3, Get 3: $272
+              Buy 3, Get 3 for $272
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <a class="btn btn-secondary" href="#deals">See both deals</a>
+            <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + FREE Float for $134</a>
           </div>
           <p class="ended-note">Black Friday is over. Thanks for floating with us!</p>
           <p class="ends">
@@ -399,7 +410,6 @@
         </div>
         <div class="hero-photo">
           <img class="washed" src="/img/black-friday/hero-pod.jpg" alt="A guest relaxing in a glowing teal float pod at Clarity Float Spa">
-          <div class="price-bubble" aria-hidden="true"><b>50%</b><span>off</span></div>
         </div>
       </div>
     </div>
@@ -409,14 +419,15 @@
       <div class="wrap">
         <div class="section-head">
           <h2>Two ways to unwind for less.</h2>
-          <p>Both deals come as gift cards by email. Keep them for yourself, or split them with someone you love.</p>
+          <p>Keep them for yourself, or split them with someone you love.</p>
         </div>
 
           <article class="deal deal-main deal-wide" id="buy3get3">
             <div class="deal-info">
             <span class="tag tag-sage">Deal 1 · Best value</span>
-            <h3>Buy 3, Get 3</h3>
-            <p class="sub">Pay for one float, one sauna and one massage. We add a second of each, free. Keep all six, or share a set with someone.</p>
+            <h3>The Triple Pack: Buy 3, Get 3</h3>
+            <p class="sub">Buy 1 Float + 1 Sauna + 1 Massage. Get 1 Float + 1 Sauna + 1 Massage <strong>FREE</strong>.</p>
+            <p class="love">💆 Love massage? Stock up on our last buy-one-get-one massage deal this year.</p>
 
             <div class="price-row">
               <span class="price">$272</span>
@@ -430,21 +441,21 @@
               <li>
                 <span class="ico ico-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
                 <span class="name">2 × 60-minute float <small>Pay for 1, the 2nd is free</small></span>
-                <span class="val">$178 <small>$89 each</small></span>
+                <span class="val"><s>$178</s> $89</span>
               </li>
               <li>
                 <span class="ico ico-sauna"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
                 <span class="name">2 × 40-minute infrared sauna <small>Pay for 1, the 2nd is free</small></span>
-                <span class="val">$98 <small>$49 each</small></span>
+                <span class="val"><s>$98</s> $49</span>
               </li>
               <li>
                 <span class="ico ico-massage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span>
                 <span class="name">2 × 60-minute massage <small>Pay for 1, the 2nd is free</small></span>
-                <span class="val">$268 <small>$134 each</small></span>
+                <span class="val"><s>$268</s> $134</span>
               </li>
               <li class="total">
                 <span class="name">6 sessions · you pay</span>
-                <span class="val">$272</span>
+                <span class="val"><s>$544</s> $272</span>
               </li>
             </ul>
 
@@ -457,41 +468,33 @@
               </a>
             </div>
             <p class="ended-note">This offer has ended.</p>
-            <p class="fine">Values based on Clarity's regular single-session prices.</p>
+            <p class="fine">Values based on Clarity's regular non-member prices.</p>
           </div>
-          </article>
-      </div>
-    </section>
-
-    <!-- ── What's inside (Buy 3, Get 3) ── -->
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <h2>What's inside the reset.</h2>
-          <p>Your six sessions, two of each. Do them in one long afternoon or spread them through the winter.</p>
-        </div>
-        <div class="trio">
-          <div class="svc">
+            <div class="inside">
+              <h4>What's inside Deal 1</h4>
+              <p>Your six sessions, two of each. Do them in one long afternoon or spread them through the winter.</p>
+              <div class="trio">
+          <div class="svc" id="float">
             <img class="washed" src="/img/black-friday/float-pod.jpg" alt="A float pod glowing blue with a guest inside" loading="lazy">
             <div class="body">
-              <h3>Float</h3>
+              <h3>💧 Float</h3>
               <p>Body-temperature water with about 1,000 lbs of Epsom salt, so you rest weightless. Lights off, phone away, nobody can reach you.</p>
               <span class="reg">60 minutes · regularly $89</span>
             </div>
           </div>
-          <div class="svc">
+          <div class="svc" id="sauna">
             <img class="washed" src="/img/black-friday/sauna.jpg" alt="The cedar infrared sauna at Clarity Float Spa" loading="lazy">
             <div class="body">
-              <h3>Infrared sauna</h3>
+              <h3>🔥 Infrared sauna</h3>
               <p>Deep, even warmth in a private infrared sauna. The easiest way to thaw out after a cold Missouri day.</p>
               <span class="reg">40 minutes · regularly $49</span>
             </div>
           </div>
-          <div class="svc">
+          <div class="svc" id="massage">
             <img class="washed" src="/img/black-friday/massage.jpg" alt="A massage table in a warm, softly lit room" loading="lazy">
             <div class="body">
-              <h3>Massage</h3>
-              <p>An hour with one of our therapists to work out what the holidays wound up.</p>
+              <h3>💆 Massage</h3>
+              <p>An hour with one of our therapists, working out every knot the holidays tied.</p>
               <span class="reg">60 minutes · regularly $134</span>
             </div>
           </div>
@@ -499,22 +502,20 @@
         <p class="swipe-hint" aria-hidden="true">Swipe to see all three
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </p>
+            </div>
+          </article>
       </div>
     </section>
 
     <!-- ── Deal 2 ── -->
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <h2>Just here for a massage?</h2>
-          <p>Our second deal adds a float to a massage gift card, free.</p>
-        </div>
           <article class="deal deal-alt deal-wide" id="massage-float">
             <div class="photo"><img class="washed" src="/img/black-friday/massage-float.jpg" alt="The massage room at Clarity Float Spa, lit by a salt lamp"></div>
             <div class="deal-info">
-            <span class="tag tag-accent">Deal 2 · Float on us 💧</span>
-            <h3>Buy a Massage, Get a Float on Us</h3>
-            <p class="sub">Book a 60-minute massage and we'll add a 60-minute float, free.</p>
+            <span class="tag tag-accent">Deal 2 · Float on us 💆💧</span>
+            <h3>Buy a Massage, Get a FREE Float</h3>
+            <p class="sub">Soak in that post-massage feeling with a free float on us.</p>
 
             <div class="price-row">
               <span class="price">$134</span>
@@ -532,8 +533,8 @@
               </li>
               <li>
                 <span class="ico ico-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
-                <span class="name">60-minute float <small>Regularly $89</small></span>
-                <span class="val free">Free</span>
+                <span class="name">60-minute float</span>
+                <span class="val free"><s>$89</s> FREE</span>
               </li>
             </ul>
 
@@ -541,7 +542,7 @@
 
             <div class="cta-live">
               <a class="btn btn-primary btn-block" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">
-                Massage + Float for $134
+                Massage + FREE Float for $134
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
             </div>
@@ -563,8 +564,8 @@
             <p>Check out online in a couple of minutes. Gift it, or keep it for yourself.</p>
           </div>
           <div class="step">
-            <h4>Watch your inbox</h4>
-            <p>Your gift card arrives by email, ready to forward. Splitting the bundle? Share the extra sessions with a friend.</p>
+            <h4>Unwrap it in your inbox</h4>
+            <p>Your gift card arrives by email, ready to keep or forward. Splitting the bundle? Share the extra sessions with a friend.</p>
           </div>
           <div class="step">
             <h4>Book when you're ready</h4>
@@ -574,15 +575,16 @@
 
         <div class="closer">
           <div>
-            <h2 id="closer-title">Half off ends November 30.</h2>
+            <h2 id="closer-title">These deals end November 30.</h2>
             <p>Six sessions for $272, or a massage and a float for $134.</p>
           </div>
           <div class="btns cta-live">
             <a class="btn btn-primary" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">Buy 3, Get 3</a>
-            <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + Float</a>
+            <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + FREE Float</a>
           </div>
           <p class="ended-note" style="background:var(--color-accent-2-700);color:var(--color-accent-2-100)">Thanks for floating with us! <a href="https://clarityfloats.floathelm.com/booking" target="_blank" rel="noopener" style="color:inherit">Book a session</a></p>
         </div>
+        <p class="terms"><strong>The fine print:</strong> Credits never expire. No limit per customer. Gift cards are non-refundable, don't include therapist gratuity, and can't be combined with other discounts or offers.</p>
       </div>
     </section>
   </main>
@@ -633,13 +635,13 @@
         closer.textContent = "That's a wrap on Black Friday.";
       } else if (!isNaN(lastDay) && now >= lastDay) {
         line.textContent = 'Last day! The sale ends tonight at midnight';
-        closer.textContent = 'Last day: half off ends tonight.';
+        closer.textContent = 'Last day: these deals end tonight.';
       } else if (!isNaN(starts) && now >= starts) {
         line.textContent = 'The sale is on now, through ' + f;
-        closer.textContent = 'Half off ends ' + longDay(finalDay) + '.';
+        closer.textContent = 'These deals end ' + longDay(finalDay) + '.';
       } else if (!isNaN(starts)) {
         line.textContent = 'Pre-sale is open now · Sale runs ' + range;
-        closer.textContent = 'Half off ends ' + longDay(finalDay) + '.';
+        closer.textContent = 'These deals end ' + longDay(finalDay) + '.';
       }
       document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -651,7 +653,7 @@
       var deals = {
         b3g3: { name: 'Buy 3, Get 3 · $272', sub: '$544 value · 50% off', value: 272, label: 'Buy 3 Get 3',
                 href: 'https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401' },
-        mf:   { name: 'Massage + Float · $134', sub: '$223 value · float free', value: 134, label: 'Massage + Float',
+        mf:   { name: 'Massage + FREE Float · $134', sub: '$223 value · float free', value: 134, label: 'Massage + Float',
                 href: 'https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa' }
       };
       var current = null, link = document.getElementById('bb-link');

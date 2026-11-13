@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PREVIEW (main-site style) · Black Friday at Clarity Float Spa</title>
+  <meta name="description" content="Black Friday at Clarity Float Spa in Columbia, MO: Buy 3, Get 3 for $272 (a $544 value), or buy a massage and get a FREE float for $134.">
+  <!-- DRAFT: remove the next line when the page is approved to go public -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta property="og:title" content="Black Friday at Clarity Float Spa: Buy 3, Get 3">
+  <meta property="og:description" content="Float, infrared sauna and massage. Pay for three, get three more free. $272 ($544 value).">
+  <meta property="og:image" content="https://clarityfloats.com/img/black-friday/hero-pod.jpg">
+  <meta property="og:url" content="https://clarityfloats.com/black-friday-preview">
+
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Organic design-system tokens (from the Clarity design system) ── */
+    /* PREVIEW: main-site look (Lato, teal #1abc9c, slate #34495e, light gray #ecf0f1) */
+    :root {
+      --color-bg: #ffffff;
+      --color-surface: #ecf0f1;
+      --color-text: #34495e;
+      --color-accent: #1abc9c;
+      --color-accent-2: #16a085;
+      --color-divider: color-mix(in srgb, #34495e 16%, transparent);
+
+      --color-neutral-100: #ffffff; --color-neutral-200: #f4f6f7; --color-neutral-300: #bdc3c7;
+      --color-neutral-700: #5d6d7e; --color-neutral-800: #34495e; --color-neutral-900: #2c3e50;
+
+      --color-accent-100: #e8f8f5; --color-accent-200: #d1f2eb; --color-accent-300: #a3e4d7;
+      --color-accent-400: #48c9b0; --color-accent-600: #16a085; --color-accent-700: #117a65;
+      --color-accent-800: #0e6251;
+
+      --color-accent-2-100: #e8f8f5; --color-accent-2-200: #eaf6f3; --color-accent-2-300: #a3e4d7;
+      --color-accent-2-700: #16a085; --color-accent-2-800: #2c3e50; --color-accent-2-900: #0e6251;
+
+      --font-heading: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-body: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+      --space-1: 4.4px; --space-2: 8.8px; --space-3: 13.2px; --space-4: 17.6px;
+      --space-6: 26.4px; --space-8: 35.2px;
+      --radius-sm: 4px; --radius-md: 6px; --radius-lg: 10px;
+
+      --shadow-sm: 0 1px 2px rgba(44,62,80,.12);
+      --shadow-md: 0 3px 10px rgba(44,62,80,.14);
+      --shadow-lg: 0 12px 32px rgba(44,62,80,.2);
+
+      --page: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--color-bg); color: var(--color-text);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 400; line-height: 1.08; letter-spacing: -0.015em; margin: 0 0 var(--space-3); }
+    p { margin: 0 0 var(--space-4); }
+    img { display: block; max-width: 100%; }
+    a { color: var(--color-accent-700); text-underline-offset: 3px; }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+    ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+    .washed { filter: saturate(0.75) contrast(0.92) brightness(1.06); }
+
+    .wrap { width: min(var(--page), 100% - 40px); margin-inline: auto; }
+
+    /* ── buttons & tags ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: var(--font-heading); font-size: 19px; line-height: 1.1; text-decoration: none;
+      padding: 17px 30px; border-radius: 999px; border: 2px solid transparent; cursor: pointer;
+      transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .btn-primary { background: var(--color-accent); color: var(--color-neutral-100); box-shadow: var(--shadow-md); }
+    .btn-primary:hover { background: var(--color-accent-600); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .btn-primary:active { background: var(--color-accent-700); transform: none; }
+    .btn-secondary { border-color: currentColor; color: inherit; }
+    .btn-secondary:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+    .btn-secondary:active { background: color-mix(in srgb, currentColor 18%, transparent); }
+    .btn-block { width: 100%; }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .tag svg { width: 15px; height: 15px; }
+    .tag-accent { background: var(--color-accent-200); color: var(--color-accent-800); }
+    .tag-accent-2 { background: var(--color-accent-2-200); color: var(--color-accent-2-800); }
+    .tag-sage { background: var(--color-accent-2-700); color: var(--color-accent-2-100); }
+    .tag-dark { background: color-mix(in srgb, var(--color-neutral-100) 14%, transparent); color: var(--color-accent-300); }
+
+    /* ── header ── */
+    .site-head { padding: 18px 0; }
+    .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-text); font-family: var(--font-heading); font-size: 21px; }
+    .brand img { width: 46px; height: auto; }
+    .head-links { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 15px; }
+    .head-links a { color: var(--color-text); text-decoration: none; }
+    .head-links a:hover { color: var(--color-accent-700); }
+    .head-links .btn { font-size: 16px; padding: 10px 20px; }
+    .btn { white-space: nowrap; }
+    @media (max-width: 640px) {
+      .head-links .hide-sm { display: none; }
+      .brand { font-size: 18px; } .brand img { width: 38px; }
+      .head-links .btn { font-size: 14px; padding: 8px 14px; }
+      .hero-ctas .btn, .closer .btns .btn { width: 100%; }
+      .closer .btns { width: 100%; }
+      .btn { font-size: 17px; padding: 16px 22px; }
+      .items li { padding: 12px 14px; gap: 10px; }
+    }
+
+    /* ── hero ── */
+    .hero {
+      position: relative; overflow: hidden;
+      background: var(--color-neutral-900); color: var(--color-neutral-100);
+      border-radius: 44px; padding: clamp(32px, 6vw, 72px);
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center;
+    }
+    .hero::before { /* soft accent circle */
+      content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%;
+      left: -180px; bottom: -300px; background: var(--color-accent-800); opacity: .55; z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(46px, 7.4vw, 92px); margin: 18px 0 18px; color: var(--color-neutral-100); }
+    .hero h1 em { font-style: normal; color: var(--color-accent-400); }
+    .hero .lede { font-size: clamp(18px, 2vw, 21px); max-width: 30ch; color: var(--color-neutral-300); }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .hero-ctas .btn-secondary { color: var(--color-neutral-100); }
+    .hero-photo { position: relative; }
+    .hero-photo img {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      border-radius: 999px 999px 40px 40px; box-shadow: var(--shadow-lg);
+    }
+    .price-bubble {
+      position: absolute; left: -26px; bottom: 34px; width: 132px; height: 132px; border-radius: 50%;
+      background: var(--color-accent); color: var(--color-neutral-100);
+      display: grid; place-content: center; text-align: center; box-shadow: var(--shadow-lg);
+      transform: rotate(-8deg);
+    }
+    .price-bubble b { font-family: var(--font-heading); font-weight: 400; font-size: 38px; line-height: 1; display: block; }
+    .price-bubble span { font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+    .ends { margin-top: 22px; font-size: 15px; color: var(--color-neutral-300); display: flex; align-items: center; gap: 8px; }
+    .ends svg { width: 18px; height: 18px; color: var(--color-accent-400); }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; border-radius: 32px; }
+      .hero-photo { max-width: 380px; }
+      .price-bubble { left: auto; right: -10px; }
+    }
+
+    /* ── sections ── */
+    section { padding: clamp(56px, 8vw, 96px) 0 0; }
+    .section-head { max-width: 640px; margin-bottom: 34px; }
+    .section-head h2 { font-size: clamp(34px, 4.6vw, 52px); }
+    .section-head p { font-size: 19px; color: var(--color-neutral-700); }
+
+    /* ── deal cards ── */
+    .deal-wide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); column-gap: clamp(28px, 4vw, 56px);
+                 grid-template-areas: "info items" "buy items"; align-items: start; }
+    .deal-wide .deal-info { grid-area: info; }
+    .deal-wide .items { grid-area: items; margin: 0; align-self: center; }
+    .deal-wide .deal-buy { grid-area: buy; align-self: end; }
+    .deal-alt.deal-wide { grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); grid-template-areas: "photo info" "photo items" "photo buy"; row-gap: 22px; }
+    .deal-alt.deal-wide .photo { grid-area: photo; margin: 0; height: 100%; }
+    .deal-alt.deal-wide .photo img { height: 100%; aspect-ratio: auto; min-height: 320px; }
+    .deal-alt.deal-wide .items { align-self: start; }
+    @media (max-width: 900px) {
+      .deal-wide, .deal-alt.deal-wide { grid-template-columns: minmax(0, 1fr); grid-template-areas: "photo" "info" "items" "buy"; row-gap: 0; }
+      .deal-wide .items { margin: 0 0 24px; }
+      .deal-main.deal-wide { grid-template-areas: "info" "items" "inside" "buy"; }
+      .inside { margin: 0 0 24px; padding-top: 22px; }
+      .deal-alt.deal-wide .photo { height: auto; margin: -6px 0 24px; }
+      .deal-alt.deal-wide .photo img { height: auto; min-height: 0; aspect-ratio: 16 / 10; }
+    }
+
+    .deal { border-radius: 36px; padding: clamp(26px, 4vw, 44px); box-shadow: var(--shadow-sm); scroll-margin-top: 24px; }
+    .deal-main { background: var(--color-accent-2-200); }
+    .deal-alt { background: var(--color-accent-2-200); }
+    .deal h3 { font-size: clamp(30px, 3.6vw, 42px); margin-top: 14px; }
+    .deal .sub { font-size: 18px; color: var(--color-neutral-800); max-width: 38ch; }
+
+    .price-row { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 6px 18px; margin: 22px 0 6px; }
+    .price { font-family: var(--font-heading); font-size: clamp(60px, 8vw, 84px); line-height: .9; }
+    .was { font-size: 18px; color: var(--color-neutral-700); padding-bottom: 8px; }
+    .was s { text-decoration-thickness: 2px; }
+    .save { margin-bottom: 22px; }
+
+    .items { list-style: none; padding: 0; margin: 0 0 26px; border-radius: 24px; background: color-mix(in srgb, var(--color-neutral-100) 70%, transparent); }
+    .items li { display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 12px; padding: 14px 18px; }
+    .items li + li { border-top: 1px solid var(--color-divider); }
+    .items .ico { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; }
+    .items .ico svg { width: 22px; height: 22px; }
+    .ico-float { background: var(--color-accent-2-300); color: var(--color-accent-2-800); }
+    .ico-sauna { background: var(--color-accent-300); color: var(--color-accent-800); }
+    .ico-massage { background: var(--color-neutral-300); color: var(--color-neutral-800); }
+    .items .name { font-weight: 600; line-height: 1.3; }
+    .items .name small { display: block; font-weight: 400; font-size: 14px; color: var(--color-neutral-700); }
+    .items .val { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; line-height: 1.3; }
+    .items .val small { display: block; font-weight: 400; font-size: 13px; color: var(--color-neutral-700); }
+    .items .free { color: var(--color-accent-2-700); }
+    .items li.total { background: color-mix(in srgb, var(--color-text) 5%, transparent); border-radius: 0 0 24px 24px; grid-template-columns: 1fr auto; }
+    .items li.total .name, .items li.total .val { font-size: 16px; }
+
+    .deal-alt .photo { margin: -6px 0 24px; }
+    .deal-alt .photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 28px; }
+
+    .items .val s { font-weight: 400; color: var(--color-neutral-700); margin-right: 6px; text-decoration-thickness: 2px; }
+    .love { margin: 14px 0 0; padding: 12px 16px; border-radius: 16px; font-weight: 600; font-size: 16px;
+            background: color-mix(in srgb, var(--color-neutral-100) 70%, transparent); max-width: 44ch; }
+    @media (min-width: 901px) { .deal-main.deal-wide { grid-template-areas: "info items" "buy items" "inside inside"; } }
+    .inside { grid-area: inside; margin-top: clamp(28px, 4vw, 44px); padding-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--color-divider); }
+    .inside h4 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 6px; }
+    .inside > p { color: var(--color-neutral-800); margin-bottom: 22px; }
+    .inside .svc { background: color-mix(in srgb, var(--color-neutral-100) 70%, transparent); }
+    .svc { scroll-margin-top: 24px; }
+    .terms { font-size: 14px; color: var(--color-neutral-700); margin: 22px auto 0; max-width: 70ch; text-align: center; }
+    .fine { font-size: 14px; color: var(--color-neutral-700); margin: 14px 0 0; }
+
+    /* ended state (set by script after the end date) */
+    .is-ended .cta-live, .is-ended .closer .btns.cta-live, .is-ended .hero-ctas.cta-live,
+    .is-ended .ends, .is-ended .closer h2 + p, .is-ended .price-bubble { display: none; }
+    .is-ended .hero .ended-note { background: color-mix(in srgb, var(--color-neutral-100) 14%, transparent); color: var(--color-neutral-100); margin-top: 22px; }
+    .ended-note { display: none; }
+    .is-ended .ended-note { display: block; font-weight: 600; padding: 16px 22px; border-radius: 999px; background: var(--color-neutral-300); text-align: center; }
+
+    /* ── what's inside ── */
+    .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
+    .svc { background: var(--color-surface); border-radius: 32px; overflow: hidden; }
+    .svc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .svc .body { padding: 24px 26px 28px; }
+    .svc h3 { font-size: 27px; margin-bottom: 8px; }
+    .svc p { margin: 0; color: var(--color-neutral-800); font-size: 16px; }
+    .svc .reg { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--color-neutral-700); }
+
+    /* ── how it works ── */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+    .step { position: relative; padding: 26px 26px 26px 92px; border-radius: 28px; background: var(--color-neutral-100); }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      position: absolute; left: 22px; top: 22px; width: 52px; height: 52px; border-radius: 50%;
+      display: grid; place-items: center; font-family: var(--font-heading); font-size: 24px;
+      background: var(--color-accent-2-300); color: var(--color-accent-2-900);
+    }
+    .step h4 { font-size: 21px; margin-bottom: 6px; }
+    .step p { margin: 0; font-size: 16px; color: var(--color-neutral-800); }
+
+    /* ── closing band ── */
+    .closer {
+      margin-top: clamp(56px, 8vw, 96px);
+      background: var(--color-accent-2-800); color: var(--color-accent-2-100);
+      border-radius: 44px; padding: clamp(32px, 6vw, 64px);
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;
+    }
+    .closer h2 { font-size: clamp(32px, 4.4vw, 50px); margin: 0 0 8px; color: var(--color-neutral-100); }
+    .closer p { margin: 0; color: var(--color-accent-2-300); font-size: 18px; }
+    .closer .btns { display: flex; flex-wrap: wrap; gap: 14px; }
+    .closer .btn-secondary { color: var(--color-neutral-100); }
+
+    /* ── sticky buy bar (phones only) ── */
+    .buybar { display: none; }
+    .swipe-hint { display: none; }
+
+    /* ══ Phone layout ══ */
+    @media (max-width: 640px) {
+      body { padding-bottom: 92px; }
+
+      /* shorter hero: photo becomes a strip above the headline */
+      .hero { padding: 22px 22px 28px; gap: 18px; border-radius: 30px; }
+      .hero::before { width: 300px; height: 300px; left: -140px; bottom: -190px; }
+      .hero-photo { order: -1; max-width: none; }
+      .hero-photo img { aspect-ratio: 2 / 1; border-radius: 22px; object-position: center 35%; }
+      .price-bubble { width: 78px; height: 78px; right: 10px; left: auto; bottom: -18px; }
+      .price-bubble b { font-size: 24px; }
+      .price-bubble span { font-size: 10px; }
+      .hero h1 { font-size: 50px; margin: 12px 0 10px; }
+      .hero .lede { font-size: 17px; margin-bottom: 0; }
+      .hero-ctas { margin-top: 18px; }
+      .ends { margin-top: 14px; font-size: 14px; }
+
+      section { padding-top: 48px; }
+      .section-head { margin-bottom: 22px; }
+      .section-head p { font-size: 17px; }
+
+      /* massage deal: photo shrinks to a slim strip */
+      .deal-alt.deal-wide .photo img { aspect-ratio: 3 / 1; border-radius: 20px; object-position: center 60%; }
+      .deal-alt.deal-wide .photo { margin: -4px 0 18px; }
+
+      /* swipeable service cards */
+      .trio {
+        display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+        margin-inline: -20px; padding: 0 20px 6px; scroll-padding-inline: 20px;
+        scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      }
+      .trio::-webkit-scrollbar { display: none; }
+      .svc { flex: 0 0 80%; scroll-snap-align: start; border-radius: 26px; }
+      .svc img { aspect-ratio: 16 / 10; }
+      .svc .body { padding: 18px 20px 22px; }
+      .svc h3 { font-size: 23px; }
+      .svc p { font-size: 15px; }
+      .swipe-hint { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--color-neutral-700); }
+      .swipe-hint svg { width: 16px; height: 16px; }
+
+      .step { padding: 20px 20px 20px 80px; }
+      .step::before { left: 18px; top: 18px; width: 46px; height: 46px; font-size: 21px; }
+      .closer { border-radius: 30px; }
+
+      /* sticky bar */
+      .buybar {
+        display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom));
+        z-index: 50; padding: 10px 10px 10px 20px; border-radius: 999px;
+        background: var(--color-neutral-900); color: var(--color-neutral-100); box-shadow: var(--shadow-lg);
+        transform: translateY(140%); transition: transform .25s ease;
+      }
+      .buybar.show { transform: none; }
+      .buybar .bb-text { line-height: 1.2; min-width: 0; }
+      .buybar .bb-name { display: block; font-family: var(--font-heading); font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .buybar .bb-sub { display: block; font-size: 13px; color: var(--color-neutral-300); }
+      .buybar .btn { font-size: 16px; padding: 12px 20px; box-shadow: none; flex: none; }
+      .is-ended .buybar { display: none; }
+    }
+
+    /* ── footer ── */
+    footer { padding: 44px 0 56px; font-size: 15px; color: var(--color-neutral-700); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+    footer a { color: var(--color-neutral-800); }
+    /* ── PREVIEW overrides: squarer corners, bold Lato headings, teal buttons like the main site ── */
+    h1, h2, h3, h4, .price, .brand, .step::before, .buybar .bb-name { font-weight: 700; letter-spacing: 0; }
+    body { font-weight: 400; }
+    .hero .lede, .section-head p { font-weight: 300; }
+    .washed { filter: none; }
+    .btn { font-family: var(--font-body); font-weight: 700; border-radius: 6px; }
+    .btn-primary { background: #1abc9c; color: #ffffff; text-shadow: 0 1px 1px rgba(0,0,0,.15); }
+    .btn-primary:hover { background: #16a085; }
+    .btn-primary:active { background: #117a65; }
+    .tag { border-radius: 4px; }
+    .site-head { background: #ecf0f1; }
+    .hero { border-radius: 10px; background: #2c3e50; }
+    .hero::before { display: none; }
+    .hero-photo img { border-radius: 8px; }
+    .deal, .closer { border-radius: 10px; }
+    .items, .svc, .step, .love, .deal-alt .photo img { border-radius: 8px !important; }
+    .items li.total { border-radius: 0 0 8px 8px; }
+    .closer p { color: #bdc3c7; }
+    .buybar { border-radius: 8px; background: #2c3e50; }
+  </style>
+
+  <!-- Facebook Pixel (same pixel as the homepage) -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '129176834423136');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', { content_name: 'Black Friday 2026' });
+  </script>
+  <!-- Google Analytics (same tag as the homepage) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74351054-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-74351054-1');
+    function dealClick(name, value) {
+      try { fbq('track', 'AddToCart', { content_name: name, value: value, currency: 'USD' }); } catch (e) {}
+      try { gtag('event', 'deal_click', { deal: name, value: value }); } catch (e) {}
+    }
+  </script>
+</head>
+
+<body>
+  <!-- ═══ BLACK FRIDAY DATES — the only place to change them (Central time, -06:00) ═══
+       data-sale-starts : when the line switches from "pre-sale" to "sale is on"
+       data-last-day    : start of the final day ("Last day!" messages)
+       data-ends        : the moment the offer ends; buy buttons hide after this
+       The page works out the "Nov 16–30" wording from these dates. -->
+  <div id="bf"
+       data-sale-starts="2026-11-16T00:00:00-06:00"
+       data-last-day="2026-11-30T00:00:00-06:00"
+       data-ends="2026-12-01T00:00:00-06:00">
+
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="/"><img src="/img/logo/rsz_claritylogo2.png" alt="">Clarity Float Spa</a>
+      <nav class="head-links" aria-label="Main">
+        <a class="hide-sm" href="#float">Float</a>
+        <a class="hide-sm" href="#sauna">Sauna</a>
+        <a class="hide-sm" href="#massage">Massage</a>
+        <a class="btn btn-secondary" href="#deals">See the deals</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <span class="tag tag-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+            Black Friday at Clarity · Our best deal of the year
+          </span>
+          <h1>Buy 3,<br><em>get 3.</em></h1>
+          <p class="lede">Float + Sauna + Massage. Buy one of each, get one of each free.</p>
+          <div class="hero-ctas cta-live">
+            <a class="btn btn-primary" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">
+              Buy 3, Get 3 for $272
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + FREE Float for $134</a>
+          </div>
+          <p class="ended-note">Black Friday is over. Thanks for floating with us!</p>
+          <p class="ends">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span id="when-line">Pre-sale is open now · Sale runs Nov 16–30</span>
+          </p>
+        </div>
+        <div class="hero-photo">
+          <img class="washed" src="/img/black-friday/hero-pod.jpg" alt="A guest relaxing in a glowing teal float pod at Clarity Float Spa">
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Deals ── -->
+    <section id="deals">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Two ways to unwind for less.</h2>
+          <p>Keep them for yourself, or split them with someone you love.</p>
+        </div>
+
+          <article class="deal deal-main deal-wide" id="buy3get3">
+            <div class="deal-info">
+            <span class="tag tag-sage">Deal 1 · Best value</span>
+            <h3>The Triple Pack: Buy 3, Get 3</h3>
+            <p class="sub">Buy 1 Float + 1 Sauna + 1 Massage. Get 1 Float + 1 Sauna + 1 Massage <strong>FREE</strong>.</p>
+            <p class="love">💆 Love massage? Stock up on our last buy-one-get-one massage deal this year.</p>
+
+            <div class="price-row">
+              <span class="price">$272</span>
+              <span class="was"><s>$544</s> value</span>
+            </div>
+            <p class="save"><span class="tag tag-accent">You save $272 · 50% off</span></p>
+
+            </div>
+
+            <ul class="items">
+              <li>
+                <span class="ico ico-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+                <span class="name">2 × 60-minute float <small>Pay for 1, the 2nd is free</small></span>
+                <span class="val"><s>$178</s> $89</span>
+              </li>
+              <li>
+                <span class="ico ico-sauna"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span>
+                <span class="name">2 × 40-minute infrared sauna <small>Pay for 1, the 2nd is free</small></span>
+                <span class="val"><s>$98</s> $49</span>
+              </li>
+              <li>
+                <span class="ico ico-massage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span>
+                <span class="name">2 × 60-minute massage <small>Pay for 1, the 2nd is free</small></span>
+                <span class="val"><s>$268</s> $134</span>
+              </li>
+              <li class="total">
+                <span class="name">6 sessions · you pay</span>
+                <span class="val"><s>$544</s> $272</span>
+              </li>
+            </ul>
+
+            <div class="deal-buy">
+
+            <div class="cta-live">
+              <a class="btn btn-primary btn-block" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">
+                Buy 3, Get 3 for $272
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+            <p class="ended-note">This offer has ended.</p>
+            <p class="fine">Values based on Clarity's regular non-member prices.</p>
+          </div>
+            <div class="inside">
+              <h4>What's inside Deal 1</h4>
+              <p>Your six sessions, two of each. Do them in one long afternoon or spread them through the winter.</p>
+              <div class="trio">
+          <div class="svc" id="float">
+            <img class="washed" src="/img/black-friday/float-pod.jpg" alt="A float pod glowing blue with a guest inside" loading="lazy">
+            <div class="body">
+              <h3>💧 Float</h3>
+              <p>Body-temperature water with about 1,000 lbs of Epsom salt, so you rest weightless. Lights off, phone away, nobody can reach you.</p>
+              <span class="reg">60 minutes · regularly $89</span>
+            </div>
+          </div>
+          <div class="svc" id="sauna">
+            <img class="washed" src="/img/black-friday/sauna.jpg" alt="The cedar infrared sauna at Clarity Float Spa" loading="lazy">
+            <div class="body">
+              <h3>🔥 Infrared sauna</h3>
+              <p>Deep, even warmth in a private infrared sauna. The easiest way to thaw out after a cold Missouri day.</p>
+              <span class="reg">40 minutes · regularly $49</span>
+            </div>
+          </div>
+          <div class="svc" id="massage">
+            <img class="washed" src="/img/black-friday/massage.jpg" alt="A massage table in a warm, softly lit room" loading="lazy">
+            <div class="body">
+              <h3>💆 Massage</h3>
+              <p>An hour with one of our therapists, working out every knot the holidays tied.</p>
+              <span class="reg">60 minutes · regularly $134</span>
+            </div>
+          </div>
+        </div>
+        <p class="swipe-hint" aria-hidden="true">Swipe to see all three
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </p>
+            </div>
+          </article>
+      </div>
+    </section>
+
+    <!-- ── Deal 2 ── -->
+    <section>
+      <div class="wrap">
+          <article class="deal deal-alt deal-wide" id="massage-float">
+            <div class="photo"><img class="washed" src="/img/black-friday/massage-float.jpg" alt="The massage room at Clarity Float Spa, lit by a salt lamp"></div>
+            <div class="deal-info">
+            <span class="tag tag-accent">Deal 2 · Float on us 💆💧</span>
+            <h3>Buy a Massage, Get a FREE Float</h3>
+            <p class="sub">Soak in that post-massage feeling with a free float on us.</p>
+
+            <div class="price-row">
+              <span class="price">$134</span>
+              <span class="was"><s>$223</s> value</span>
+            </div>
+            <p class="save"><span class="tag tag-accent-2">You save $89 · 40% off</span></p>
+
+            </div>
+
+            <ul class="items">
+              <li>
+                <span class="ico ico-massage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></span>
+                <span class="name">60-minute massage</span>
+                <span class="val">$134</span>
+              </li>
+              <li>
+                <span class="ico ico-float"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
+                <span class="name">60-minute float</span>
+                <span class="val free"><s>$89</s> FREE</span>
+              </li>
+            </ul>
+
+            <div class="deal-buy">
+
+            <div class="cta-live">
+              <a class="btn btn-primary btn-block" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">
+                Massage + FREE Float for $134
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+            <p class="ended-note">This offer has ended.</p>
+          </div>
+          </article>
+      </div>
+    </section>
+
+    <!-- ── How it works ── -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How it works.</h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h4>Buy the gift card</h4>
+            <p>Check out online in a couple of minutes. Gift it, or keep it for yourself.</p>
+          </div>
+          <div class="step">
+            <h4>Unwrap it in your inbox</h4>
+            <p>Your gift card arrives by email, ready to keep or forward. Splitting the bundle? Share the extra sessions with a friend.</p>
+          </div>
+          <div class="step">
+            <h4>Book when you're ready</h4>
+            <p>Schedule each session online at <a href="https://clarityfloats.floathelm.com/booking" target="_blank" rel="noopener">our booking page</a>, or give us a call.</p>
+          </div>
+        </div>
+
+        <div class="closer">
+          <div>
+            <h2 id="closer-title">These deals end November 30.</h2>
+            <p>Six sessions for $272, or a massage and a float for $134.</p>
+          </div>
+          <div class="btns cta-live">
+            <a class="btn btn-primary" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener" onclick="dealClick('Buy 3 Get 3', 272)">Buy 3, Get 3</a>
+            <a class="btn btn-secondary" href="https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa" target="_blank" rel="noopener" onclick="dealClick('Massage + Float', 134)">Massage + FREE Float</a>
+          </div>
+          <p class="ended-note" style="background:var(--color-accent-2-700);color:var(--color-accent-2-100)">Thanks for floating with us! <a href="https://clarityfloats.floathelm.com/booking" target="_blank" rel="noopener" style="color:inherit">Book a session</a></p>
+        </div>
+        <p class="terms"><strong>The fine print:</strong> Credits never expire. No limit per customer. Gift cards are non-refundable, don't include therapist gratuity, and can't be combined with other discounts or offers.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky buy bar (phones only). Switches to whichever deal is on screen. -->
+  <div class="buybar" id="buybar" role="region" aria-label="Buy">
+    <span class="bb-text">
+      <span class="bb-name" id="bb-name">Buy 3, Get 3 · $272</span>
+      <span class="bb-sub" id="bb-sub">$544 value · 50% off</span>
+    </span>
+    <a class="btn btn-primary" id="bb-link" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener">Buy now</a>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="yr">2026</span> Clarity Float Spa · Columbia, MO</span>
+      <span><a href="tel:5738258788">573-825-8788</a> · <a href="mailto:info@clarityfloats.com">info@clarityfloats.com</a> · <a href="/">Back to ClarityFloats.com</a></span>
+    </div>
+  </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById('bf');
+      var now = new Date();
+      var starts = new Date(root.getAttribute('data-sale-starts'));
+      var lastDay = new Date(root.getAttribute('data-last-day'));
+      var ends = new Date(root.getAttribute('data-ends'));
+
+      // "Nov 16" style labels in Central time
+      function md(d) {
+        try { return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'America/Chicago' }); }
+        catch (e) { return d.toDateString().slice(4, 10).replace(/ 0/, ' '); }
+      }
+      function longDay(d) {
+        try { return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'America/Chicago' }); }
+        catch (e) { return md(d); }
+      }
+      var finalDay = new Date(ends.getTime() - 1);          // last moment of the sale
+      var s = md(starts), f = md(finalDay);
+      var range = s.split(' ')[0] === f.split(' ')[0] ? s + '–' + f.split(' ')[1] : s + ' – ' + f;
+
+      var line = document.getElementById('when-line');
+      var closer = document.getElementById('closer-title');
+      if (!isNaN(ends) && now >= ends) {
+        root.classList.add('is-ended');
+        closer.textContent = "That's a wrap on Black Friday.";
+      } else if (!isNaN(lastDay) && now >= lastDay) {
+        line.textContent = 'Last day! The sale ends tonight at midnight';
+        closer.textContent = 'Last day: these deals end tonight.';
+      } else if (!isNaN(starts) && now >= starts) {
+        line.textContent = 'The sale is on now, through ' + f;
+        closer.textContent = 'These deals end ' + longDay(finalDay) + '.';
+      } else if (!isNaN(starts)) {
+        line.textContent = 'Pre-sale is open now · Sale runs ' + range;
+        closer.textContent = 'These deals end ' + longDay(finalDay) + '.';
+      }
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // Sticky buy bar (phones). Shows Buy 3, Get 3 by default; switches to
+      // Massage + Float only while that card fills the middle of the screen.
+      // Hides only while the hero buttons or the closing buttons are on screen.
+      var bar = document.getElementById('buybar');
+      if (!bar) return;
+      var deals = {
+        b3g3: { name: 'Buy 3, Get 3 · $272', sub: '$544 value · 50% off', value: 272, label: 'Buy 3 Get 3',
+                href: 'https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401' },
+        mf:   { name: 'Massage + FREE Float · $134', sub: '$223 value · float free', value: 134, label: 'Massage + Float',
+                href: 'https://clarityfloats.floathelm.com/store/giftcards/s/4a58637f9bfcf734ff2e99ed0ea15cb266c120aa' }
+      };
+      var current = null, link = document.getElementById('bb-link');
+      var card2 = document.getElementById('massage-float');
+      var blockers = document.querySelectorAll('.hero-ctas, .closer .btns');
+
+      function onScreen(el) {
+        var r = el.getBoundingClientRect(), vh = window.innerHeight;
+        return r.bottom > 0 && r.top < vh - 90; // ignore the strip the bar itself covers
+      }
+      function anyOnScreen(list) { for (var i = 0; i < list.length; i++) if (onScreen(list[i])) return true; return false; }
+      function setDeal(d) {
+        if (d === current) return; current = d;
+        document.getElementById('bb-name').textContent = d.name;
+        document.getElementById('bb-sub').textContent = d.sub;
+        link.href = d.href;
+      }
+      function update() {
+        var r = card2.getBoundingClientRect(), mid = window.innerHeight / 2;
+        var d = (r.top < mid && r.bottom > mid) ? deals.mf : deals.b3g3;
+        setDeal(d);
+        bar.classList.toggle('show', !anyOnScreen(blockers));
+      }
+      var ticking = false;
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(); }); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      link.addEventListener('click', function () { dealClick(current.label, current.value); });
+      update();
+    })();
+  </script>
+</body>
+</html>
