@@ -21,24 +21,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Organic design-system tokens (from the Clarity design system) ── */
+    /* ── Design tokens: 70s look in Clarity colors (logo teal + lime, main-site slate) ── */
     :root {
-      --color-bg: #f5ead8;
-      --color-surface: #ebddc5;
-      --color-text: #201e1d;
-      --color-accent: #c67139;
-      --color-accent-2: #7a8a5e;
-      --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+      /* Clarity colors (logo teal + lime, main-site slate) */
+      --color-bg: #f6f3ea;
+      --color-surface: #e9e4d6;
+      --color-text: #2c3e50;
+      --color-accent: #0f8c99;
+      --color-accent-2: #a6c63a;
+      --color-divider: color-mix(in srgb, #2c3e50 16%, transparent);
 
-      --color-neutral-100: #f9f4ed; --color-neutral-200: #eee7db; --color-neutral-300: #dcd3c4;
-      --color-neutral-700: #645c50; --color-neutral-800: #474238; --color-neutral-900: #2e2b25;
+      --color-neutral-100: #fbf9f3; --color-neutral-200: #f0ece1; --color-neutral-300: #d9d4c6;
+      --color-neutral-700: #5d6670; --color-neutral-800: #3c4a58; --color-neutral-900: #2c3e50;
 
-      --color-accent-100: #fff2eb; --color-accent-200: #ffe1d0; --color-accent-300: #ffc6a5;
-      --color-accent-400: #f6a06b; --color-accent-600: #b2622d; --color-accent-700: #8c491a;
-      --color-accent-800: #643312;
+      --color-accent-100: #e3f5f6; --color-accent-200: #c7ebee; --color-accent-300: #93d6dc;
+      --color-accent-400: #c5dc6a; --color-accent-600: #0b7a86; --color-accent-700: #086470;
+      --color-accent-800: #064d56;
 
-      --color-accent-2-100: #f0fae1; --color-accent-2-200: #e1eecc; --color-accent-2-300: #ccdbb2;
-      --color-accent-2-700: #56633f; --color-accent-2-800: #3d472b; --color-accent-2-900: #272e1b;
+      --color-accent-2-100: #f4f9e4; --color-accent-2-200: #e6f0c4; --color-accent-2-300: #d1e38e;
+      --color-accent-2-700: #5f7a1c; --color-accent-2-800: #075a63; --color-accent-2-900: #2d3b10;
 
       --font-heading: "Caprasimo", system-ui, sans-serif;
       --font-body: "Figtree", system-ui, sans-serif;
@@ -335,6 +336,9 @@
     footer { padding: 44px 0 56px; font-size: 15px; color: var(--color-neutral-700); }
     footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
     footer a { color: var(--color-neutral-800); }
+    /* Clarity-color tweaks */
+    .closer p { color: var(--color-accent-300); }
+    .hero::before { background: #0f8c99; opacity: .45; }
   </style>
 
   <!-- Facebook Pixel (same pixel as the homepage) -->
