@@ -161,3 +161,10 @@ section#contact .section-heading, section#contact h3 { color: var(--clarity-navy
 .price-head .price-icon { margin-bottom: 0; flex: none; }
 .price-title { margin: 0; font-weight: 900; font-size: 1.35rem; color: var(--clarity-navy); }
 .photo-portrait { aspect-ratio: 3 / 4; object-fit: cover; }
+
+/* keep menu labels on one line (e.g. "Tips / Tour") */
+#mainNav .navbar-nav .nav-item .nav-link { white-space: nowrap; }
+@media (min-width: 1200px) and (max-width: 1399px) {
+  #mainNav .navbar-nav .nav-item .nav-link { padding: 1.1em .5em !important; font-size: .8rem; }
+  #mainNav .navbar-brand { font-size: 1.1rem; }
+}
