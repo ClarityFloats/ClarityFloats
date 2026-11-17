@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Black Friday at Clarity Float Spa | Buy 3, Get 3</title>
   <meta name="description" content="Black Friday at Clarity Float Spa in Columbia, MO: Buy 3, Get 3 for $272 (a $544 value), or buy a massage and get a FREE float for $134.">
-  <!-- DRAFT: remove the next line when the page is approved to go public -->
-  <meta name="robots" content="noindex, nofollow">
 
   <meta property="og:title" content="Black Friday at Clarity Float Spa: Buy 3, Get 3">
   <meta property="og:description" content="Float, infrared sauna and massage. Pay for three, get three more free. $272 ($544 value).">
@@ -18,10 +16,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <style>
-    /* ── Design tokens: 70s look in Clarity colors (logo teal + lime, main-site slate) ── */
+    /* ── Design tokens (overridden below by the home-page skin) ── */
     :root {
       /* Clarity colors (logo teal + lime, main-site slate) */
       --color-bg: #f6f3ea;
@@ -41,8 +39,8 @@
       --color-accent-2-100: #f4f9e4; --color-accent-2-200: #e6f0c4; --color-accent-2-300: #d1e38e;
       --color-accent-2-700: #5f7a1c; --color-accent-2-800: #075a63; --color-accent-2-900: #2d3b10;
 
-      --font-heading: "Caprasimo", system-ui, sans-serif;
-      --font-body: "Figtree", system-ui, sans-serif;
+      --font-heading: "Lato", Helvetica, Arial, sans-serif;
+      --font-body: "Lato", Helvetica, Arial, sans-serif;
 
       --space-1: 4.4px; --space-2: 8.8px; --space-3: 13.2px; --space-4: 17.6px;
       --space-6: 26.4px; --space-8: 35.2px;
@@ -340,6 +338,124 @@
     /* Clarity-color tweaks */
     .closer p { color: var(--color-accent-300); }
     .hero::before { background: #0f8c99; opacity: .45; }
+
+    /* ══ Home-page skin (Nov 2026): matches clarityfloats.com — Lato, navy/teal/lime,
+          white cards with soft shadows, same menu bar and footer. ══ */
+    :root {
+      --color-bg: #f4f8f8; --color-surface: #ffffff; --color-text: #34495e;
+      --color-accent: #16a085; --color-accent-600: #138d75; --color-accent-700: #117964; --color-accent-800: #0e6655;
+      --color-accent-100: #e8f8f4; --color-accent-200: #d1f2eb; --color-accent-300: #8ddecd; --color-accent-400: #c3dc4f;
+      --color-accent-2: #a9c934; --color-accent-2-100: #f4f9e4; --color-accent-2-200: #eef5d6; --color-accent-2-300: #d6e889;
+      --color-accent-2-700: #5f7a1c; --color-accent-2-800: #34495e; --color-accent-2-900: #22313f;
+      --color-neutral-100: #ffffff; --color-neutral-300: #c9d3dc; --color-neutral-700: #5d7184; --color-neutral-800: #4b5f72; --color-neutral-900: #34495e;
+      --font-body: "Lato", Helvetica, Arial, sans-serif;
+      --font-heading: "Lato", Helvetica, Arial, sans-serif;
+      --font-display: "Lato", Helvetica, Arial, sans-serif;
+      --card-shadow: 0 8px 28px rgba(52, 73, 94, .09);
+    }
+    body { font-size: 17px; padding-top: 74px; }
+    h1, h2, h3, h4 { font-weight: 900; letter-spacing: 0; line-height: 1.15; }
+
+    /* menu bar (same look as the home page once scrolled) */
+    .cf-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #34495e; transition: box-shadow .2s ease; }
+    .cf-nav.cf-shrink { box-shadow: 0 4px 18px rgba(0, 0, 0, .18); }
+    .cf-nav-inner { width: min(1320px, 100% - 32px); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 74px; flex-wrap: wrap; }
+    .cf-brand { display: flex; align-items: center; gap: .6rem; color: #fff; text-decoration: none; font-weight: 700; font-size: 1.25rem; letter-spacing: .02em; }
+    .cf-brand img { height: 2.4rem; width: auto; }
+    .cf-menu { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: .25rem; }
+    .cf-menu a { display: block; color: #fff; text-decoration: none; font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; padding: .8em .75em; white-space: nowrap; }
+    .cf-menu a:hover { color: #8ddecd; }
+    .cf-menu a.cf-book { background: #16a085; border-radius: 2rem; padding: .55rem 1.3rem; margin-left: .5rem; }
+    .cf-menu a.cf-book:hover { background: #138d75; color: #fff; }
+    .cf-toggle { display: none; align-items: center; gap: .4rem; background: #16a085; color: #fff; border: 0; border-radius: .4rem; padding: .55rem .8rem; font: 700 .75rem/1 var(--font-body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+    .cf-toggle svg { width: 16px; height: 16px; }
+    @media (max-width: 991px) {
+      .cf-toggle { display: inline-flex; }
+      .cf-menu { display: none; flex-basis: 100%; flex-direction: column; align-items: flex-start; padding: 0 0 1rem; }
+      .cf-nav.cf-open .cf-menu { display: flex; }
+      .cf-menu a.cf-book { margin: .5rem 0 0 .75em; }
+    }
+    [id] { scroll-margin-top: 90px; }
+
+    /* hero: full-width photo band with navy overlay, like the home page */
+    .hero-band { position: relative; overflow: hidden; background: #34495e; color: #fff; }
+    .hero-band { background: linear-gradient(135deg, #2c3e50 0%, #34495e 55%, #2f5d62 100%); }
+    .section-head { margin-inline: auto; text-align: center; }
+    .hero-band .wrap { position: relative; z-index: 1; }
+    .hero { background: transparent; border-radius: 0; padding: clamp(40px, 7vw, 88px) 0; }
+    .hero::before { display: none; }
+    .hero h1 { font-weight: 900; letter-spacing: 0; line-height: 1.05; text-shadow: 0 2px 18px rgba(0, 0, 0, .3); }
+    .washed { filter: none; }
+    .hero-photo img { border-radius: .9rem; aspect-ratio: 4 / 5; box-shadow: 0 16px 40px rgba(0, 0, 0, .35); }
+    .price-bubble { transform: none; border: 4px solid #fff; }
+    .price-bubble b { font-weight: 900; }
+    .hero h1 em { color: #c3dc4f; }
+    .hero .lede { color: #dfe7ee; }
+    .ends { color: #c9d3dc; }
+    .ends svg { color: #c3dc4f; }
+    .price-bubble { background: #a9c934; color: #22313f; }
+
+    /* buttons: home-page pills */
+    .btn { font-family: var(--font-body); font-weight: 700; font-size: 17px; padding: 15px 30px; }
+    .btn-primary { background: #16a085; color: #fff; box-shadow: 0 6px 18px rgba(22, 160, 133, .28); }
+    .btn-primary:hover { background: #138d75; }
+    .btn-primary:active { background: #117964; }
+
+    /* tags */
+    .tag-sage { background: #a9c934; color: #22313f; }
+    .tag-accent { background: #d1f2eb; color: #0e6655; }
+    .tag-accent-2 { background: #eef5d6; color: #4a5f16; }
+    .tag-dark { background: rgba(255, 255, 255, .12); color: #c3dc4f; }
+
+    /* section headings like the home page */
+    .section-head h2 { font-size: clamp(32px, 4vw, 42px); }
+    .section-head p { color: #5d7184; }
+
+    /* deal cards: white with the home page's soft shadow */
+    .deal, .deal-main, .deal-alt { background: #fff; border-radius: 1rem; box-shadow: var(--card-shadow); }
+    .deal h3 { font-size: clamp(28px, 3.2vw, 38px); }
+    .price { font-weight: 900; color: #34495e; letter-spacing: -.01em; }
+    .items { background: #f4f8f8; border-radius: .9rem; }
+    .items li.total { border-radius: 0 0 .9rem .9rem; background: #e8f0f0; }
+    .ico-float { background: #eef5d6; color: #4a5f16; }
+    .ico-sauna { background: #d1f2eb; color: #0e6655; }
+    .ico-massage { background: #e3e9ef; color: #34495e; }
+    .items .free { color: #16a085; }
+    .love { background: #f4f9e4; border-radius: .75rem; }
+    .deal-alt .photo img, .deal-alt.deal-wide .photo img { border-radius: .9rem; }
+    @media (max-width: 640px) { .hero-photo img { border-radius: .9rem; aspect-ratio: 2 / 1; } }
+    .inside .svc { background: #f4f8f8; }
+
+    /* what's inside + steps: white cards */
+    .svc { background: #fff; border-radius: 1rem; box-shadow: var(--card-shadow); }
+    .svc h3 { font-size: 24px; }
+    .step { background: #fff; border-radius: 1rem; box-shadow: var(--card-shadow); }
+    .step::before { font-family: var(--font-body); font-weight: 900; background: #d1f2eb; color: #0e6655; border: 4px solid #e8f8f4; }
+    .step h4 { font-size: 20px; }
+
+    /* closing band: navy like the home page */
+    .closer { background: #34495e; border-radius: 1rem; }
+    .closer p { color: #c3dc4f; }
+
+    /* phone buy bar */
+    .buybar .bb-name { font-family: var(--font-body); font-weight: 900; }
+
+    /* footer like the home page */
+    .cf-foot { padding: 28px 0 36px; font-size: .9rem; color: #6b7d8e; margin-top: clamp(56px, 8vw, 96px); background: #fff; }
+    .cf-foot .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+    .cf-foot a { color: #34495e; text-decoration: none; }
+    .cf-foot a:hover { color: #16a085; }
+    .cf-social { display: flex; gap: 12px; }
+    .cf-social a { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #34495e; color: #fff; display: grid; place-items: center; }
+    .cf-social a:hover { background: #16a085; color: #fff; }
+    .cf-social svg { height: 1rem; width: 1rem; }
+    @media (max-width: 640px) {
+      body { padding-top: 66px; }
+      .cf-nav-inner { min-height: 66px; }
+      .cf-brand { font-size: 1.1rem; } .cf-brand img { height: 2rem; }
+      .hero { padding: 22px 0 32px; }
+      .cf-foot .wrap { flex-direction: column; text-align: center; }
+    }
   </style>
 
   <!-- Facebook Pixel (same pixel as the homepage) -->
@@ -378,20 +494,26 @@
        data-last-day="2026-11-30T00:00:00-06:00"
        data-ends="2026-12-01T00:00:00-06:00">
 
-  <header class="site-head">
-    <div class="wrap">
-      <a class="brand" href="/"><img src="/img/black-friday/clarity-logo.png" alt="">Clarity Float Spa</a>
-      <nav class="head-links" aria-label="Main">
-        <a class="hide-sm" href="#float">Float</a>
-        <a class="hide-sm" href="#sauna">Sauna</a>
-        <a class="hide-sm" href="#massage">Massage</a>
-        <a class="btn btn-secondary" href="#deals">See the deals</a>
-      </nav>
+  <nav class="cf-nav" id="cfNav" aria-label="Main">
+    <div class="cf-nav-inner">
+      <a class="cf-brand" href="/"><img src="/img/logo/claritylogo2.png" alt=""> Clarity Float Spa</a>
+      <button class="cf-toggle" type="button" aria-expanded="false" aria-controls="cfMenu">Menu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="cf-menu" id="cfMenu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#deals">The deals</a></li>
+        <li><a href="#float">Float</a></li>
+        <li><a href="#sauna">Sauna</a></li>
+        <li><a href="#massage">Massage</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a class="cf-book" href="https://clarityfloats.floathelm.com/booking" target="_blank" rel="noopener">Book</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <main>
-    <div class="wrap">
+    <div class="hero-band"><div class="wrap">
       <div class="hero">
         <div>
           <span class="tag tag-dark">
@@ -417,7 +539,7 @@
           <img class="washed" src="/img/black-friday/hero-pod.jpg" alt="A guest relaxing in a glowing teal float pod at Clarity Float Spa">
         </div>
       </div>
-    </div>
+    </div></div>
 
     <!-- ── Deals ── -->
     <section id="deals">
@@ -558,7 +680,7 @@
     </section>
 
     <!-- ── How it works ── -->
-    <section>
+    <section id="how">
       <div class="wrap">
         <div class="section-head">
           <h2>How it works.</h2>
@@ -603,15 +725,32 @@
     <a class="btn btn-primary" id="bb-link" href="https://clarityfloats.floathelm.com/store/giftcards/s/9c957399196bb1e5235fccef1a281efe316b5401" target="_blank" rel="noopener">Buy now</a>
   </div>
 
-  <footer>
+  <footer class="cf-foot">
     <div class="wrap">
-      <span>© <span id="yr">2026</span> Clarity Float Spa · Columbia, MO</span>
-      <span><a href="tel:5738258788">573-825-8788</a> · <a href="mailto:info@clarityfloats.com">info@clarityfloats.com</a> · <a href="/">Back to ClarityFloats.com</a></span>
+      <span>&copy; <span id="yr">2026</span> Clarity Float Spa All rights reserved.</span>
+      <span class="cf-social">
+        <a href="https://facebook.com/clarityfloats" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 320 512" fill="currentColor" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></a>
+        <a href="https://instagram.com/clarityfloats" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      </span>
+      <span><a href="tel:5738258788">573-825-8788</a> · <a href="mailto:info@clarityfloats.com">info@clarityfloats.com</a> · <a href="/">ClarityFloats.com</a></span>
     </div>
   </footer>
 
   </div>
 
+  <script>
+    (function () {
+      var nav = document.getElementById('cfNav'), btn = nav.querySelector('.cf-toggle');
+      function shrink() { nav.classList.toggle('cf-shrink', window.scrollY > 0); }
+      shrink(); window.addEventListener('scroll', shrink, { passive: true });
+      btn.addEventListener('click', function () {
+        var open = nav.classList.toggle('cf-open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('.cf-menu a').forEach(function (a) {
+        a.addEventListener('click', function () { nav.classList.remove('cf-open'); btn.setAttribute('aria-expanded', 'false'); });
+      });
+    })();
+  </script>
   <script>
     (function () {
       var root = document.getElementById('bf');
