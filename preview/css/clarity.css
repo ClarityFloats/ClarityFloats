@@ -160,3 +160,4 @@ section#contact .section-heading, section#contact h3 { color: var(--clarity-navy
 .price-head { display: flex; align-items: center; gap: .9rem; margin-bottom: .75rem; padding-bottom: .9rem; border-bottom: 2px solid #d1f2eb; }
 .price-head .price-icon { margin-bottom: 0; flex: none; }
 .price-title { margin: 0; font-weight: 900; font-size: 1.35rem; color: var(--clarity-navy); }
+.photo-portrait { aspect-ratio: 3 / 4; object-fit: cover; }
