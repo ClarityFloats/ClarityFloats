@@ -55,9 +55,9 @@ section.page-section .section-subheading { font-style: normal; font-family: "Lat
 .band-navy .btn-primary { --bs-btn-bg: var(--clarity-teal); --bs-btn-border-color: var(--clarity-teal); }
 
 /* Lazy YouTube players (same script as the current site) */
-.youtube-player { position: relative; width: 100%; height: 100%; cursor: pointer; background: #000; }
+.ratio > .youtube-player { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; background: #000; border-radius: .5rem; overflow: hidden; }
 .youtube-player img { width: 100%; height: 100%; object-fit: cover; }
-.youtube-player iframe { width: 100%; height: 100%; }
+.youtube-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .youtube-player .play { position: absolute; inset: 0; background: url("/img/icons/play.png") no-repeat center center; background-size: 72px; opacity: .85; }
 .youtube-player:hover .play { opacity: 1; }
 
