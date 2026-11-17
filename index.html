@@ -72,6 +72,18 @@
 <body id="page-top" data-bs-no-jquery>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-xl navbar-dark fixed-top" id="mainNav">
+        <!-- Black Friday banner: shows Nov 16 - Nov 30, 2026 (dates on data-* attributes; hidden automatically after data-ends) -->
+        <div class="promo-bar" id="promoBar" hidden
+             data-starts="2026-11-16T00:00:00-06:00"
+             data-last-day="2026-11-30T00:00:00-06:00"
+             data-ends="2026-12-01T00:00:00-06:00">
+            <a class="promo-link" href="/black-friday/">
+                <strong>Black Friday: Buy 3, Get 3</strong>
+                <span class="promo-text">Our best deal of the year. <span class="promo-when">Ends Nov 30.</span></span>
+                <span class="promo-cta">Shop the deal &rarr;</span>
+            </a>
+            <button type="button" class="promo-close" aria-label="Hide this banner">&times;</button>
+        </div>
         <div class="container">
             <a class="navbar-brand" href="#page-top"><img src="/img/logo/claritylogo2.png" alt="" /> Clarity Float Spa</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -756,6 +768,32 @@
     <!-- Bootstrap 5 + Agency -->
     <script src="/theme/js/bootstrap.bundle.min.js"></script>
     <script src="/theme/js/agency.js"></script>
+    <script>
+        // Black Friday banner: show between data-starts and data-ends; "Last day!" on the final day; closable for this visit.
+        (function () {
+            var bar = document.getElementById('promoBar');
+            if (!bar) return;
+            var now = new Date();
+            var starts = new Date(bar.getAttribute('data-starts'));
+            var lastDay = new Date(bar.getAttribute('data-last-day'));
+            var ends = new Date(bar.getAttribute('data-ends'));
+            var dismissed = false;
+            try { dismissed = sessionStorage.getItem('promoBarClosed') === bar.getAttribute('data-ends'); } catch (e) {}
+            if (dismissed || now < starts || now >= ends) return;
+            if (now >= lastDay) bar.querySelector('.promo-when').textContent = 'Last day! Ends tonight at midnight.';
+            bar.hidden = false;
+            document.body.classList.add('has-promo');
+            bar.querySelector('.promo-link').addEventListener('click', function () {
+                if (window.fbq) fbq('trackCustom', 'BlackFridayBannerClick');
+                if (window.gtag) gtag('event', 'black_friday_banner_click');
+            });
+            bar.querySelector('.promo-close').addEventListener('click', function () {
+                bar.hidden = true;
+                document.body.classList.remove('has-promo');
+                try { sessionStorage.setItem('promoBarClosed', bar.getAttribute('data-ends')); } catch (e) {}
+            });
+        })();
+    </script>
     <script type="text/javascript">
 
         document.addEventListener('DOMContentLoaded', function() {
