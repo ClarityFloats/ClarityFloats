@@ -693,6 +693,32 @@
         </div>
     </footer>
 
+    <!-- Black Friday pop-up: shows Nov 16 - Nov 30, 2026 on the home page (dates on data-* attributes). Preview any time with ?bf-popup -->
+    <div class="deal-pop" id="dealPop" hidden
+         data-starts="2026-11-16T00:00:00-06:00"
+         data-last-day="2026-11-30T00:00:00-06:00"
+         data-ends="2026-12-01T00:00:00-06:00"
+         data-delay-ms="5000"
+         data-snooze-days="3">
+        <div class="deal-pop-backdrop" data-pop-close></div>
+        <div class="deal-pop-card" role="dialog" aria-modal="true" aria-labelledby="dealPopTitle" aria-describedby="dealPopDesc" tabindex="-1">
+            <button type="button" class="deal-pop-x" data-pop-close aria-label="Close">&times;</button>
+            <div class="deal-pop-photo">
+                <img src="/img/black-friday/hero-pod.jpg" alt="A guest relaxing in a glowing teal float pod at Clarity Float Spa" loading="lazy" />
+                <div class="deal-pop-bubble"><b>$272</b><span>$544 value</span></div>
+            </div>
+            <div class="deal-pop-body">
+                <span class="deal-pop-tag">Black Friday at Clarity</span>
+                <h2 id="dealPopTitle">Buy 3, <em>get 3.</em></h2>
+                <p id="dealPopDesc" class="deal-pop-lede">Float + infrared sauna + massage. Buy one of each, get one of each <strong>free</strong>. Our best deal of the year.</p>
+                <p class="deal-pop-also"><strong>Also:</strong> buy a massage, get a FREE float <span class="text-nowrap">for $134</span></p>
+                <a class="btn btn-primary btn-lg deal-pop-cta" href="/black-friday/">See the Black Friday deals &rarr;</a>
+                <p class="deal-pop-when"><span class="deal-pop-ends">Ends Nov 30. Makes a great gift.</span></p>
+                <button type="button" class="deal-pop-no" data-pop-close>No thanks</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Seasonal deal pop-ups (same markup and script as the current site) -->
 <div class="modal" id="membership-deal" style="display: none;">
 <div class="col-sm-12 wow fadeInDown text-center">
@@ -792,6 +818,82 @@
                 document.body.classList.remove('has-promo');
                 try { sessionStorage.setItem('promoBarClosed', bar.getAttribute('data-ends')); } catch (e) {}
             });
+        })();
+    </script>
+    <script>
+        // Black Friday pop-up: opens once after a short delay while the sale is on. Closing it snoozes it for a few days;
+        // it comes back once on the last day. Skipped for visitors who just came from the Black Friday page.
+        // Add ?bf-popup to the address to preview it right away, any day.
+        (function () {
+            var pop = document.getElementById('dealPop');
+            if (!pop) return;
+            var card = pop.querySelector('.deal-pop-card');
+            var key = 'bfPopup2026';
+            var preview = /[?&]bf-popup\b/.test(location.search);
+            var now = new Date();
+            var starts = new Date(pop.getAttribute('data-starts'));
+            var lastDay = new Date(pop.getAttribute('data-last-day'));
+            var ends = new Date(pop.getAttribute('data-ends'));
+            var snoozeMs = (parseFloat(pop.getAttribute('data-snooze-days')) || 3) * 864e5;
+            var delay = preview ? 300 : (parseInt(pop.getAttribute('data-delay-ms'), 10) || 5000);
+            var isLastDay = now >= lastDay;
+            if (preview && /[?&]bf-popup=last\b/.test(location.search)) isLastDay = true;
+
+            function read() { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; } }
+            function save(o) { try { localStorage.setItem(key, JSON.stringify(o)); } catch (e) {} }
+            function track(name) {
+                if (window.fbq) fbq('trackCustom', 'BlackFridayPopup' + name);
+                if (window.gtag) gtag('event', 'black_friday_popup_' + name.toLowerCase());
+            }
+
+            if (!preview) {
+                if (now < starts || now >= ends) return;
+                if (/\/black-friday/.test(document.referrer)) return;
+                var seen = read();
+                if (seen.closed && now - seen.closed < snoozeMs) {
+                    // already closed recently; still show once on the last day
+                    if (!(isLastDay && !seen.lastDayShown)) return;
+                }
+                if (isLastDay && seen.lastDayShown) return;
+            }
+
+            if (isLastDay) pop.querySelector('.deal-pop-ends').textContent = 'Last day! Ends tonight at midnight.';
+
+            var lastFocus = null;
+            function open() {
+                if (document.querySelector('.modal.show, .blocker')) return; // don't stack on another open dialog
+                lastFocus = document.activeElement;
+                pop.hidden = false;
+                document.documentElement.classList.add('deal-pop-open');
+                requestAnimationFrame(function () { pop.classList.add('is-in'); card.focus(); });
+                document.addEventListener('keydown', onKey);
+                if (!preview && isLastDay) { var o = read(); o.lastDayShown = 1; save(o); }
+                track('View');
+            }
+            function close() {
+                pop.classList.remove('is-in');
+                document.documentElement.classList.remove('deal-pop-open');
+                document.removeEventListener('keydown', onKey);
+                setTimeout(function () { pop.hidden = true; }, 200);
+                if (!preview) { var o = read(); o.closed = Date.now(); save(o); }
+                if (lastFocus && lastFocus.focus) lastFocus.focus();
+            }
+            function onKey(e) {
+                if (e.key === 'Escape') { close(); return; }
+                if (e.key !== 'Tab') return;
+                var f = card.querySelectorAll('a[href], button');
+                var first = f[0], last = f[f.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+            Array.prototype.forEach.call(pop.querySelectorAll('[data-pop-close]'), function (el) {
+                el.addEventListener('click', function () { track('Close'); close(); });
+            });
+            pop.querySelector('.deal-pop-cta').addEventListener('click', function () {
+                track('Click');
+                if (!preview) { var o = read(); o.closed = Date.now(); save(o); }
+            });
+            setTimeout(open, delay);
         })();
     </script>
     <script type="text/javascript">
