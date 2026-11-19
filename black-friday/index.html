@@ -292,7 +292,7 @@
       .section-head p { font-size: 17px; }
 
       /* massage deal: photo shrinks to a slim strip */
-      .deal-alt.deal-wide .photo img { aspect-ratio: 16 / 10; border-radius: 20px; object-position: center 72%; }
+      .deal-alt.deal-wide .photo img { aspect-ratio: 16 / 10; border-radius: 20px; object-position: center 96%; }
       .deal-alt.deal-wide .photo { margin: -4px 0 18px; }
 
       /* swipeable service cards */
@@ -423,6 +423,13 @@
     .items .free { color: #16a085; }
     .love { background: #f4f9e4; border-radius: .75rem; }
     .deal-alt .photo img, .deal-alt.deal-wide .photo img { border-radius: .9rem; }
+    /* massage room photo: the table sits in the lower third, so frame on it rather than the chair */
+    .deal-alt .photo img { object-position: center 100%; }
+    @media (min-width: 901px) {
+      .deal-alt.deal-wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .deal-alt.deal-wide .photo { height: auto; align-self: center; }
+      .deal-alt.deal-wide .photo img { height: auto; min-height: 0; aspect-ratio: 1 / 1; }
+    }
     @media (max-width: 640px) { .hero-photo img { border-radius: .9rem; aspect-ratio: 2 / 1; } }
     .inside .svc { background: #f4f8f8; }
 
